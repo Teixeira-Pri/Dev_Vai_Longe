@@ -30,8 +30,12 @@ class MainActivity : AppCompatActivity() {
         this.videoAdapter = VideoAdapter{ video ->
             openLink(video.link)
         }
-        recyclerview.layoutManager = LinearLayoutManager(this@MainActivity)
-        recyclerview.adapter = this.videoAdapter
+
+        recyclerview.apply {
+            layoutManager = LinearLayoutManager(this@MainActivity)
+            adapter = videoAdapter
+        }
+
     }
 
     private fun openLink(url: String) {
